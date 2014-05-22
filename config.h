@@ -48,7 +48,6 @@ static char termname[] = "st-256color";
 
 static unsigned int tabspaces = 8;
 
-
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
@@ -73,8 +72,15 @@ static const char *colorname[] = {
 
 	[255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
+  /* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
+
+  "#00cc00",
+  "#333333",
+  "#cdba96",
+  "#99ff00",
+  "#ffff00",
+
 };
 
 
@@ -82,17 +88,22 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor
  */
-static unsigned int defaultfg = 7;
-static unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
+static unsigned int defaultfg  = 7;
+static unsigned int defaultbg  = 0;
+static unsigned int defaultcs  = 256;
+
+// we don't want bold font (dc.bfont == dc.font)
+#define NOBOLDFONT 1
+// we have extra colors to mark bold, italic and underline
+#define DEFAULTBOLD 258
 
 /*
  * Colors used, when the specific fg == defaultfg. So in reverse mode this
  * will reverse too. Another logic would only make the simple feature too
  * complex.
  */
-static unsigned int defaultitalic = 11;
-static unsigned int defaultunderline = 7;
+static unsigned int defaultitalic    = 259;
+static unsigned int defaultunderline = 260;
 
 /* Internal mouse shortcuts. */
 /* Beware that overloading Button1 will disable the selection. */

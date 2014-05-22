@@ -72,14 +72,18 @@ static const char *colorname[] = {
 
 	[255] = 0,
 
-  /* more colors can be added after 255 to use with DefaultXX */
+  // cursor
 	"#cccccc",
 
+  // bold replacement
   "#00cc00",
   "#333333",
   "#cdba96",
   "#99ff00",
   "#ffff00",
+
+  // bg transparency
+  "black",
 
 };
 
@@ -89,7 +93,7 @@ static const char *colorname[] = {
  * foreground, background, cursor
  */
 static unsigned int defaultfg  = 7;
-static unsigned int defaultbg  = 0;
+static unsigned int defaultbg  = 262; // unique
 static unsigned int defaultcs  = 256;
 
 // we don't want bold font (dc.bfont == dc.font)
@@ -104,6 +108,9 @@ static unsigned int defaultcs  = 256;
  */
 static unsigned int defaultitalic    = 259;
 static unsigned int defaultunderline = 260;
+
+/* background opacity */
+static const int alpha = 0xdd;
 
 /* Internal mouse shortcuts. */
 /* Beware that overloading Button1 will disable the selection. */
